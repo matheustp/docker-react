@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t matheustp/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run matheustp/docker-react npm run test -- --coverage
